@@ -1,0 +1,100 @@
+img {
+    vertical-align: top;
+}
+
+
+/*子导航栏开始*/
+.sub-nav {
+    display: block;
+    margin-bottom: 30px;
+}
+/*子导航栏结束*/
+/*内容区域开始*/
+.dry {
+    width: 860px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.tittle {
+    font-size: 22px;
+    color: #A5A4A4;
+    margin-left: 100px;
+}
+.summary {
+    line-height: 26px;
+    width: 522px;
+    margin-top: 7px;
+}
+.introduce1 {
+    float: left;
+    padding-right: 50px;
+}
+.introduce2 {
+    float: right;
+}
+.introduce {
+    margin-top: 50px;
+}
+
+.dry-fr {
+    float: right;
+}
+.fix {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: fixed;
+    left: 1250px;
+}
+.fix-cloud {
+    top: 126px;
+
+}
+.fix-article {
+    top: 426px;
+
+}
+.fix-tittle {
+    height: 44px;
+    font-size: 16px;
+    font-weight: 400;
+    padding-left: 30px;
+    padding-top: 18px;
+    box-sizing: border-box;
+}
+.fix-cloud1,
+.fix-cloud2 {
+    position: relative;
+    height: 78px;
+}
+.fix-cloud2 {
+    border-bottom: 1px solid #EAEAEA;
+    border-top: 1px solid #EAEAEA;
+}
+.cloud1,
+.cloud2 {
+    position: absolute;
+}
+.cloud1 {
+    left: 20px;
+    top: 10px;
+}
+.cloud2 {
+    left: 118px;
+    top: 15px;
+    font-size: 12px;
+    width: 168px;
+}
+
+
+
+
+
+
+
+
+
+

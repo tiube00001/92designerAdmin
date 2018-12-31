@@ -1,0 +1,153 @@
+
+
+
+
+    /*主导航栏开始*/
+    .nav-fl2 a {
+        color: #F00D0D;
+        background-color: #fff;
+        border-top: 4px solid #7FB2EB;
+        box-sizing: border-box;
+    }
+    .icon-more {
+        color: #F00D0D;
+    }
+    /*主导航栏结束*/
+    /*子导航栏开始*/
+   .sub-nav {
+       display: block;
+   }
+   .sub-fl2 a {
+       color: #F00D0D;
+   }
+   /*子导航栏结束*/
+    /*右侧快捷选择开始*/
+.quick {
+    left: 1456px;
+    top: 135px;
+}
+.bg-line {
+    height: 390px;
+}
+    /*内容区域开始*/
+    .writings {
+        width: 1064px;
+        background-color: #fff;
+        margin-top: 35px;
+        padding-bottom: 70px;
+    }
+    .top .top-fl,
+    .top-fr {
+        font-size: 12px;
+        color: #A5A4A4;
+        line-height: 40px;
+        padding: 0 5px;
+
+    }
+    .top {
+        height: 40px;
+        border-bottom: 1px solid #eff3f5;
+
+    }
+    .top-fl {
+        float: left;
+    }
+    .top-fr {
+        float: right;
+    }
+    .main-writings {
+        padding: 26px 24px;
+
+    }
+    .tittle {
+        font-size: 30px;
+        color: #5F5C5C;
+        text-align: center;
+    }
+    .summary {
+        font-size: 16px;
+        color: #5F5C5C;
+        line-height: 24px;
+        margin-top: 30px;
+        text-indent: 2em;
+    }
+    .sub-tittle {
+        padding: 5px 22px;
+        border-top: 1px solid #E1EC2B;
+        border-bottom: 1px solid #E1EC2B;
+        font-size: 24px;
+        display: inline-block;
+        box-sizing: border-box;
+        margin-top: 36px;
+
+    }
+    .sub-tittle h3 {
+        font-size: 24px;
+        font-weight: 400;
+        text-align: center;
+        line-height: 24px;
+    }
+    .w-content {
+        font-size: 20px;
+        color: #5F5C5C;
+        text-indent: 2em;
+        line-height: 32px;
+        word-break:break-all;
+        margin-top: 24px;
+    }
+    .note {
+        text-align: center;
+        margin-top: 16px;
+        font-size: 20px;
+    }
+    .note-fr {
+        float: right;
+    }
+    .quick-tittle {
+        width: 94px;
+        height: 32px;
+        border-radius: 5px;
+        background-color: #DC4B38;
+    }
+    .quick-tittle p {
+        line-height: 32px;
+        text-align: center;
+        color: #FDFDFD;
+    }
+    .quick-pick {
+        position: relative;
+    }
+    .string {
+        width: 4px;
+        height: 400px;
+        background-color: #DDDDDD;
+        position: absolute;
+        left: 40px;
+    }
+    .circle {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: #008AFF;
+        display: inline-block;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
