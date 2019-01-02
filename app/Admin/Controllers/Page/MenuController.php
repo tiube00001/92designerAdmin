@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers\Page;
 
+use App\Models\Page\FrontMenu;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
 use Encore\Admin\Layout\Column;
@@ -32,20 +33,15 @@ class MenuController extends Controller
 
                 $row->column(6, function (Column $column) {
                     $form = new \Encore\Admin\Widgets\Form();
-                    $form->action(admin_base_path('auth/menu'));
+                    $form->action(admin_base_path('page/menu'));
 
-                    $menuModel = config('admin.database.menu_model');
-                    $permissionModel = config('admin.database.permissions_model');
-                    $roleModel = config('admin.database.roles_model');
+                    $menuModel = FrontMenu::class;
 
                     $form->select('parent_id', trans('admin.parent_id'))->options($menuModel::selectOptions());
                     $form->text('title', trans('admin.title'))->rules('required');
-                    $form->icon('icon', trans('admin.icon'))->default('fa-bars')->rules('required')->help($this->iconHelp());
-                    $form->text('uri', trans('admin.uri'));
-                    $form->multipleSelect('roles', trans('admin.roles'))->options($roleModel::all()->pluck('name', 'id'));
-                    if ((new $menuModel())->withPermission()) {
-                        $form->select('permission', trans('admin.permission'))->options($permissionModel::pluck('name', 'slug'));
-                    }
+
+                    $form->text('uri', '路由');
+
                     $form->hidden('_token')->default(csrf_token());
 
                     $column->append((new Box(trans('admin.new'), $form))->style('success'));
@@ -70,22 +66,19 @@ class MenuController extends Controller
      */
     protected function treeView()
     {
-        $menuModel = config('admin.database.menu_model');
+        $menuModel = FrontMenu::class;
 
         return $menuModel::tree(function (Tree $tree) {
             $tree->disableCreate();
 
             $tree->branch(function ($branch) {
-                $payload = "<i class='fa {$branch['icon']}'></i>&nbsp;<strong>{$branch['title']}</strong>";
+                $payload = "<strong>{$branch['title']}</strong>";
 
                 if (!isset($branch['children'])) {
-                    if (url()->isValidUrl($branch['uri'])) {
-                        $uri = $branch['uri'];
-                    } else {
-                        $uri = admin_base_path($branch['uri']);
-                    }
 
-                    $payload .= "&nbsp;&nbsp;&nbsp;<a href=\"$uri\" class=\"dd-nodrag\">$uri</a>";
+                    $uri = $branch['uri'] ?: '';
+
+                    $payload .= "&nbsp;&nbsp;&nbsp;<a href=\"javascript:void(0)\" class=\"dd-nodrag\">$uri</a>";
                 }
 
                 return $payload;
@@ -116,9 +109,7 @@ class MenuController extends Controller
      */
     public function form()
     {
-        $menuModel = config('admin.database.menu_model');
-        $permissionModel = config('admin.database.permissions_model');
-        $roleModel = config('admin.database.roles_model');
+        $menuModel = FrontMenu::class;
 
         $form = new Form(new $menuModel());
 
@@ -126,12 +117,7 @@ class MenuController extends Controller
 
         $form->select('parent_id', trans('admin.parent_id'))->options($menuModel::selectOptions());
         $form->text('title', trans('admin.title'))->rules('required');
-        $form->icon('icon', trans('admin.icon'))->default('fa-bars')->rules('required')->help($this->iconHelp());
         $form->text('uri', trans('admin.uri'));
-        $form->multipleSelect('roles', trans('admin.roles'))->options($roleModel::all()->pluck('name', 'id'));
-        if ($form->model()->withPermission()) {
-            $form->select('permission', trans('admin.permission'))->options($permissionModel::pluck('name', 'slug'));
-        }
 
         $form->display('created_at', trans('admin.created_at'));
         $form->display('updated_at', trans('admin.updated_at'));
