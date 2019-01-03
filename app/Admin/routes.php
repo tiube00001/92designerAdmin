@@ -12,5 +12,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->resource('page/menu', 'Page\MenuController', ['except' => ['create']]);
+    $router->resource('page/banner', 'Page\BannerController');
+    $router->resource('page/{parentId}/sub-banner', 'Page\SubBannerController');
 
 });
